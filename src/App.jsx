@@ -4,6 +4,7 @@ import Login from './Login/Login';
 import Signup from './Signup/SignUp';
 import {RouterProvider, createBrowserRouter} from 'react-router-dom'
 import ThankYou from './Thankyou/Thankyou';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 function App() {
   const route = createBrowserRouter([
@@ -23,7 +24,7 @@ function App() {
   return (
     <div className='app'>
       <RouterProvider router={route}></RouterProvider>
-      
+      <SpeedInsights />
       
     </div>
   );

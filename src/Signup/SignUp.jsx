@@ -44,7 +44,7 @@ const toggleDarkMode= () => {
     <input type="text" id="username" name="username" placeholder="UserName" value={username} onChange={(e) => setUsername(e.target.value)}required/>
 
     <label htmlFor="password" >Email</label>
-    <input type="text" id="email" name="email" placeholder="UserName"  value={email} onChange={(e) => setEmail(e.target.value)}required/>
+    <input type="text" id="email" name="email" placeholder="Email"  value={email} onChange={(e) => setEmail(e.target.value)}required/>
     
     <label htmlFor="password" >Password</label>
     <input type={showPassword ? 'text' :'password'}  id="password" name="password" placeholder="Your password.."
