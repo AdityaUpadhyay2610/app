@@ -7,7 +7,7 @@ const Login = () => {
     const [usernameOrEmail, setUsernameOrEmail] = useState('');
      const [password, setPassword] = useState('');
      const [error, setError] = useState(null);
-
+     const [showPassword, setShowPassword] = useState(false);
 
     const toggleDarkMode= () => {
      setDarkMode(!isDarkMode);
@@ -53,10 +53,13 @@ const Login = () => {
       <input type="text" id="email" name="email" placeholder="UserName/Your email.." value={usernameOrEmail} onChange={(e) => setUsernameOrEmail(e.target.value)}/>
   
       <label htmlFor="password" >Password</label>
-      <input type="password" id="password" name="password" placeholder="Your password.." value={password} onChange={(e) => setPassword(e.target.value)}/>
+      <input type={showPassword ? 'text' :'password'} id="password" name="password" placeholder="Your password.." value={password} onChange={(e) => setPassword(e.target.value)}/>
 
-    
-  
+      <div className="show">
+    <input type="checkbox" id='show-password' onChange={(e) => setShowPassword(e.target.checked)} />
+    <label htmlFor="show-password">Show Password</label>
+    </div>
+      
       <div className="checkbox">
         <input type="checkbox" id="remember" name="remember"/>
         <label htmlFor="remember">Remember me</label>

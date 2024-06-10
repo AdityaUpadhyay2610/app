@@ -1,13 +1,28 @@
-.thank-you{
+.thank-you {
     /* max-width: 50%; */
-}
-.btn2 {
+    background: rgb(132, 129, 184);
+    background: linear-gradient(
+      90deg,
+      rgba(132, 129, 184, 1) 0%,
+      rgba(20, 47, 161, 0.9360994397759104) 35%,
+      rgba(0, 212, 255, 1) 100%
+    );
+    min-height: 100vh;
+    text-align: center; /* Use center for better cross-browser compatibility */
+    color: white;
+    display: flex; /* Enable flexbox layout */
+    flex-direction: column; /* Arrange items vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+  }
+  
+  .btn2 {
     display: block;
-    
-}
-.btn1{
+  }
+  
+  .btn1 {
     width: 92px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+  }

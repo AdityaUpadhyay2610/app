@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import './SignUp.css';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
+  const navigate =useNavigate();
   const [isDarkMode,setDarkMode] = useState('false');
   const [showPassword, setShowPassword] = useState(false);
   const [username, setUsername] = useState('');
@@ -18,7 +20,7 @@ const SignUp = () => {
     }
     const userData = { username, email, password };
     localStorage.setItem('user', JSON.stringify(userData));
-    window.location.href = '/thank-you';
+    navigate('/thank-you');
   };
 const toggleDarkMode= () => {
    setDarkMode(!isDarkMode);

@@ -4,7 +4,8 @@ import './ThankYou.css'
 
 const ThankYou = () => {
   return (
-    <div className="thank-you">
+    <div className="contry">
+      <div className="thank-you">
       <h1>Thank you for registering!</h1>
       <p>We are excited to have you on board.</p>
       <div className="btn2">
@@ -12,6 +13,7 @@ const ThankYou = () => {
         <Link to="/login" style={{color:'white',textDecoration:'none'}}>Login</Link>
       </button>
       </div>
+    </div>
     </div>
   );
 };
