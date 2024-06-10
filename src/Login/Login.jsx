@@ -4,12 +4,35 @@ import './Login.css'
 
 const Login = () => {
     const [isDarkMode,setDarkMode] = useState('false');
+    const [usernameOrEmail, setUsernameOrEmail] = useState('');
+     const [password, setPassword] = useState('');
+     const [error, setError] = useState(null);
+
 
     const toggleDarkMode= () => {
      setDarkMode(!isDarkMode);
      document.body.style.backgroundColor = isDarkMode ? 'black ' : 'white'; //Enabling Dark Mode
   
     }
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      const storedUserData = localStorage.getItem('user');
+      if (storedUserData) {
+        const userData = JSON.parse(storedUserData);
+        if (usernameOrEmail === userData.username || usernameOrEmail === userData.email) {
+          if (password === userData.password) {
+            // User is authenticated, redirect to welcome page
+            window.location.href = `/welcome/${userData.username}`;
+          } else {
+            setError('Invalid password');
+          }
+        } else {
+          setError('Invalid Username/Email or Passwordl');
+        }
+      } else {
+        setError('No user data found');
+      }
+    };
     return (
       <div className={isDarkMode ? 'ligh-mode' :'dark-mode'}>
         <nav className={`navbar  bg-dark bg-body-tertiary justify-content-center`}>
@@ -24,12 +47,15 @@ const Login = () => {
     <div className="head">
     <h2 >Sign In</h2>
     </div>
-    <form>
+    {error && <div style={{ color: 'red',fontWeight:"bolder", }}>{error}</div>}
+    <form onSubmit={handleSubmit}>
       <label htmlFor="email" >UserName/Email address</label>
-      <input type="text" id="email" name="email" placeholder="UserName/Your email.."/>
+      <input type="text" id="email" name="email" placeholder="UserName/Your email.." value={usernameOrEmail} onChange={(e) => setUsernameOrEmail(e.target.value)}/>
   
       <label htmlFor="password" >Password</label>
-      <input type="password" id="password" name="password" placeholder="Your password.."/>
+      <input type="password" id="password" name="password" placeholder="Your password.." value={password} onChange={(e) => setPassword(e.target.value)}/>
+
+    
   
       <div className="checkbox">
         <input type="checkbox" id="remember" name="remember"/>
