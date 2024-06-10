@@ -1,0 +1,13 @@
+.thank-you{
+    /* max-width: 50%; */
+}
+.btn2 {
+    display: block;
+    
+}
+.btn1{
+    width: 92px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
